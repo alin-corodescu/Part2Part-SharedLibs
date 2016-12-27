@@ -1,4 +1,5 @@
+#include "CommandArgument.h"
 
-class FileDescription
+class FileDescription : public CommandArgument
 {
 };
