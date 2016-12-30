@@ -1,10 +1,10 @@
 //
 // Created by alin on 12/26/16.
 //
-
+#pragma once
 #ifndef CLIENT_COMMAND_H
 #define CLIENT_COMMAND_H
-
+#define COMM_LENGTH 13
 
 enum CommandTypes {
     QUERY,
@@ -18,7 +18,7 @@ enum CommandTypes {
     REQUEST,
     OPEN,
     PROVIDE,
-    TRASNFERRING
+    TRANSFERRING
 };
 
 const char* commandName(CommandTypes type) {
@@ -35,11 +35,13 @@ const char* commandName(CommandTypes type) {
         case REQUEST: return "REQUEST";
         case OPEN: return "OPEN";
         case PROVIDE: return "PROVIDE";
-        case TRASNFERRING: return "TRANSFERRING";
+        case TRANSFERRING: return "TRANSFERRING";
     }
 }
 class Command {
-
+public:
+    int toString(char* buffer);
+    int length();
 };
 
 
