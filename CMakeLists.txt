@@ -16,3 +16,6 @@ add_library(Commands ${CMD_SRC})
 
 set(HSH_SRC include/IntegrityChecker.h lib/IntegrityChecker.cpp)
 add_library(IntegrityChecker ${HSH_SRC})
+
+set(FD_SRC include/FileDescription.h lib/FileDescription.cpp)
+add_library(FileDescription ${FD_SRC})

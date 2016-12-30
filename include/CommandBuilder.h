@@ -11,7 +11,7 @@
 
 class CommandBuilder {
 private:
-
+    Command* stub;
 public:
     Command build();
     void setType(CommandTypes t);

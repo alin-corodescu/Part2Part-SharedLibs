@@ -2,6 +2,8 @@
 // Created by alin on 12/26/16.
 //
 
+#include <cstring>
+#include <cstdlib>
 #include "../include/Command.h"
 
 const char *commandName(CommandTypes type) {
@@ -31,4 +33,23 @@ const char *commandName(CommandTypes type) {
         case TRANSFERRING:
             return "TRANSFERRING";
     }
+}
+
+int Command::toString(char *buffer) {
+
+    bcopy(buffer,(char*) this->buffer.data(), this->buffer.size());
+    return this->buffer.size();
+}
+
+Command::Command(CommandTypes type) {
+    this->type = type;
+    char *comm = (char*) malloc(COMM_LENGTH);
+    comm[0] = 0;
+    strcat(comm,commandName(type));
+    buffer.append(comm);
+    free(comm);
+}
+
+int Command::length() {
+    return buffer.size();
 }
