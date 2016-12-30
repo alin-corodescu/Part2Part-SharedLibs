@@ -9,11 +9,15 @@ class FileDescription : public CommandArgument
 private:
     FileDescription();
     int size;
-    char* file_name;
+    std::string file_name;
     std::string hash;
+    std::string description;
+    std::string type;
+    std::string jsonFormat(std::string key, std::string value,bool last = true);
+    std::string jsonFormat(std::string key, int value, bool last = false);
 public:
     int getFileSize();
-    char* getFileName();
+    std::string getFileName();
     std::string getHash();
     std::string toString();
     bool operator<(const FileDescription& fileDescription) const;

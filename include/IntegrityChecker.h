@@ -5,10 +5,14 @@
 #ifndef SHARED_LIBRARIES_INTEGRITYCHECKER_H
 #define SHARED_LIBRARIES_INTEGRITYCHECKER_H
 #include <string>
+#include "FileDescription.h"
 
 class IntegrityChecker
 {
+    friend class FileDescriptionBuilder;
 private:
-    std::string hashForFile(const char* path);
+    static std::string hashForFile(const char* path);
+public:
+    static bool checkIntegrity(FileDescription fileDescription, const char* path);
 };
 #endif //SHARED_LIBRARIES_INTEGRITYCHECKER_H

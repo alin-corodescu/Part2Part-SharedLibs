@@ -4,7 +4,8 @@
 #pragma once
 #ifndef CLIENT_COMMAND_H
 #define CLIENT_COMMAND_H
-#define COMM_LENGTH 13
+#define COMM_LENGTH 14
+#include <string>
 
 enum CommandTypes {
     QUERY,
@@ -18,11 +19,18 @@ enum CommandTypes {
     REQUEST,
     OPEN,
     PROVIDE,
-    TRANSFERRING
+    TRANSFERRING,
+    HEARTBEAT
 };
 
 const char* commandName(CommandTypes type);
 class Command {
+    friend class CommandBuilder;
+    //the builder will add other arguments
+private:
+    CommandTypes type;
+    std::string buffer;
+    Command(CommandTypes type);
 public:
     int toString(char* buffer);
     int length();

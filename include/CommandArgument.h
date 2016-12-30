@@ -4,10 +4,13 @@
 #pragma once
 #ifndef CLIENT_COMMANDARGUMENT_H
 #define CLIENT_COMMANDARGUMENT_H
-
-
+#include <string>
+/**
+ * interface for classes that can be passed as argument
+ */
 class CommandArgument {
-
+public:
+    virtual std::string toString() = 0;
 };
 
 

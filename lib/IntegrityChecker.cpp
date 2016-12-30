@@ -3,6 +3,8 @@
 //
 
 #include <unistd.h>
+#include <sys/wait.h>
+
 #include "../include/IntegrityChecker.h"
 
 std::string IntegrityChecker::hashForFile(const char *path)
@@ -36,5 +38,14 @@ std::string IntegrityChecker::hashForFile(const char *path)
         hash[i] = 0;
         return std::string(hash);
     }
+
+}
+
+bool IntegrityChecker::checkIntegrity(FileDescription fileDescription, const char *path) {
+    using std::string;
+    string hash = hashForFile(path);
+    if (!hash.compare(fileDescription.getHash()))
+        return true;
+    return false;
 
 }
