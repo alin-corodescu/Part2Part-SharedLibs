@@ -3,9 +3,16 @@ project(shared_libraries)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES_IOWrappers lib/IOWrappers.cpp include/IOWrappers.h include/NetworkWrappers.h lib/NetworkWrappers.cpp
-        include/Command.h include/CommandArgument.h include/CommandBuilder.h include/FileDescription.h
-        lib/CommandBuilder.cpp lib/Command.cpp include/FileDescription.cpp)
+
 set(IO_SRC include/IOWrappers.h lib/IOWrappers.cpp)
 add_library(IOWrappers STATIC ${IO_SRC})
-add_library(shared ${SOURCE_FILES_IOWrappers})
+
+set(NET_SRC include/NetworkWrappers.h lib/NetworkWrappers.cpp)
+add_library(NetworkWrappers STATIC ${NET_SRC})
+
+set(CMD_SRC include/CommandBuilder.h include/CommandArgument.h include/Command.h
+        lib/Command.cpp lib/CommandBuilder.cpp)
+add_library(Commands ${CMD_SRC})
+
+set(HSH_SRC include/IntegrityChecker.h lib/IntegrityChecker.cpp)
+add_library(IntegrityChecker ${HSH_SRC})
