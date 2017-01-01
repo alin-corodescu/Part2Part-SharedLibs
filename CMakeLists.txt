@@ -19,3 +19,6 @@ add_library(IntegrityChecker ${HSH_SRC})
 
 set(FD_SRC include/FileDescription.h lib/FileDescription.cpp)
 add_library(FileDescription ${FD_SRC})
+
+set(ADDR_SRC include/Address.h lib/Address.cpp)
+add_library(Address ${ADDR_SRC})
