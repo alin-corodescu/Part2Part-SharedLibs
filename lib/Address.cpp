@@ -36,3 +36,24 @@ void Address::toString() {
 
 
 }
+
+void Address::setPrivateIP(unsigned int privateIP) {
+    Address::privateIP = privateIP;
+}
+
+void Address::setPrivatePort(unsigned short privatePort) {
+    Address::privatePort = privatePort;
+}
+
+void Address::setPublicIP(unsigned int publicIP) {
+    Address::publicIP = publicIP;
+}
+
+void Address::setPublicPort(unsigned short publicPort) {
+    Address::publicPort = publicPort;
+}
+
+Address::Address() {
+    publicIP = publicPort = privateIP = privatePort = 0;
+
+}

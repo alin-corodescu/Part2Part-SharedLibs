@@ -12,6 +12,16 @@ class Address
 private:
     unsigned int privateIP;
     unsigned short privatePort;
+public:
+    void setPrivateIP(unsigned int privateIP);
+
+    void setPrivatePort(unsigned short privatePort);
+
+    void setPublicIP(unsigned int publicIP);
+
+    void setPublicPort(unsigned short publicPort);
+
+private:
     unsigned int publicIP;
     unsigned short publicPort;
 public:
@@ -43,4 +53,6 @@ public:
      * @return
      */
     Address(const char* stringAddr);
+
+    Address();
 };

@@ -34,6 +34,8 @@ const char *commandName(CommandTypes type) {
             return "TRANSFERRING";
         case HEARTBEAT:
             return "HEARTBEAT";
+        case IDENTITY:
+            return "IDENTITY";
     }
 }
 

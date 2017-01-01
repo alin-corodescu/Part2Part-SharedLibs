@@ -20,7 +20,8 @@ enum CommandTypes {
     OPEN,
     PROVIDE,
     TRANSFERRING,
-    HEARTBEAT
+    HEARTBEAT,
+    IDENTITY;
 };
 
 const char* commandName(CommandTypes type);

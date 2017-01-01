@@ -16,6 +16,7 @@ void CommandBuilder::setType(CommandTypes t) {
 void CommandBuilder::addArgument(CommandArgument *arg) {
     using std::string;
     string data = arg->toString();
+    addArgument(data.size());
     stub->buffer.append(data);
 }
 
