@@ -61,3 +61,11 @@ std::string FileDescription::jsonFormat(std::string key, int value,bool last) {
     else format.append(",\n");
     return format;
 }
+
+const std::string &FileDescription::getDescription() const {
+    return description;
+}
+
+const std::string &FileDescription::getType() const {
+    return type;
+}

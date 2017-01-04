@@ -13,6 +13,12 @@ private:
     std::string hash;
     std::string description;
     std::string type;
+public:
+    const std::string &getDescription() const;
+
+    const std::string &getType() const;
+
+private:
     std::string jsonFormat(std::string key, std::string value,bool last = true);
     std::string jsonFormat(std::string key, int value, bool last = false);
 public:

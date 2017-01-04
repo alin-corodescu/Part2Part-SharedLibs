@@ -10,9 +10,18 @@
 #include "FileDescription.h"
 
 class FileDescriptionBuilder {
+private:
+    FileDescription* stub;
 public:
     FileDescription* buildFromString(char* string);
     FileDescription* readFromFile(FILE* file);
+    void init();
+    void addName(const char* name);
+    void addSize(int size);
+    void addHash(const char* hash);
+    void addType(const char* type);
+    void addDescription(const char* description);
+    FileDescription* build();
 };
 
 
