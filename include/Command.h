@@ -21,7 +21,7 @@ enum CommandTypes {
     PROVIDE,
     TRANSFERRING,
     HEARTBEAT,
-    IDENTITY;
+    IDENTITY
 };
 
 const char* commandName(CommandTypes type);

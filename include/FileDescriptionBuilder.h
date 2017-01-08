@@ -6,7 +6,6 @@
 #define CLIENT_FILEDESCRIPTIONBUILDER_H
 
 
-#include <FileDescription.h>
 #include "FileDescription.h"
 
 class FileDescriptionBuilder {
@@ -22,6 +21,7 @@ public:
     void addType(const char* type);
     void addDescription(const char* description);
     FileDescription* build();
+
 };
 
 
