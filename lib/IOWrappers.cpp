@@ -5,12 +5,13 @@
 #include <unistd.h>
 #include <netinet/in.h>
 #include <cstdlib>
+#include <cstring>
 #include "../include/IOWrappers.h"
 
 void readUInt(int socketDescriptor, unsigned int &integer) {
     long long int status;
     size_t size = sizeof(unsigned int);
-    status = read(socketDescriptor, &integer, size);
+    status = read(socketDescriptor, (void*) &integer, size);
     if (status < sizeof(unsigned int)) {
     //error occured
         if (status == -1) {
@@ -24,9 +25,10 @@ void readUInt(int socketDescriptor, unsigned int &integer) {
 void readUShort(int socketDescriptor, unsigned short &shrt)
 {
     long long int status;
+    char buffer[5];
     size_t size = sizeof(unsigned short);
-    status = read(socketDescriptor, &shrt, size);
-    if (status < sizeof(unsigned int)) {
+    status = read(socketDescriptor, (void*)&shrt, size);
+    if (status < sizeof(unsigned short)) {
         //error occured
         if (status == -1) {
 
@@ -42,10 +44,11 @@ char* readString(int socketDescriptor, unsigned int size)
     long long int status;
     long long int done = 0;
     while (done < size) {
-        status = read(socketDescriptor, buffer + done, size - done);
+        status = read(socketDescriptor, buffer + done, size -done);
         if (status <= 0)
         {
             //treat errors.
+            printf("%s\n",strerror(errno));
             throw "something happened";
             break;
         }

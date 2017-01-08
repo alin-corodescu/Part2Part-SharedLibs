@@ -16,18 +16,20 @@ void CommandBuilder::setType(CommandTypes t) {
 void CommandBuilder::addArgument(CommandArgument *arg) {
     using std::string;
     string data = arg->toString();
-    addArgument(data.size());
+    addArgument(data.size(),INT);
     stub->buffer.append(data);
 }
 
-void CommandBuilder::addArgument(unsigned int number) {
-    unsigned int networkByteOrder = htonl(number);
-    char* nr = (char*) &networkByteOrder;
-    stub->buffer.append(nr,sizeof(unsigned int));
-}
+void CommandBuilder::addArgument(unsigned int number,int type) {
+    if (type == INT) {
+        unsigned int networkByteOrder = htonl(number);
+        char *nr = static_cast<char*>(static_cast<void*> (&networkByteOrder));
+        stub->buffer.append(nr, sizeof(unsigned int));
+    }
 
-void CommandBuilder::addArgmuent(unsigned short number) {
-    unsigned short networkByteOrder = htons(number);
-    char* nr = (char*) &networkByteOrder;
-    stub->buffer.append(nr,sizeof(unsigned short));
+    if (type == SHORT) {
+        unsigned short networkByteOrder = htons(number);
+        char *nr = static_cast<char*>(static_cast<void*> (&networkByteOrder));
+        stub->buffer.append(nr, sizeof(unsigned short));
+    }
 }

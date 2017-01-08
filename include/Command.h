@@ -33,7 +33,7 @@ private:
     std::string buffer;
     Command(CommandTypes type);
 public:
-    int toString(char* buffer);
+    int toString(char*& buffer);
     int length();
 };
 

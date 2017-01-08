@@ -18,18 +18,19 @@ Address::Address(unsigned int publicIP,unsigned short publicPort,
 Address::Address(const char *stringAddr) {
     char* buffer;
     buffer = (char*) malloc(strlen(stringAddr));
+    strcpy(buffer,stringAddr);
     char * p;
     p = strtok(buffer,":");
-
+    if (p == NULL) throw  "Invalid address format";
     unsigned int ip = inet_addr(p);
     publicIP = ntohl(ip);
 
     p = strtok(NULL,":");
+    if (p == NULL) throw "Invalid address format";
     unsigned short port = (unsigned short) atoi(p);
     publicPort = port;
 
-
-
+    free(buffer);
 }
 
 void Address::toString() {

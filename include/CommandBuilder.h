@@ -8,7 +8,8 @@
 
 #include "Command.h"
 #include "CommandArgument.h"
-
+#define SHORT 1
+#define INT 2
 class CommandBuilder {
 private:
     Command* stub;
@@ -16,8 +17,7 @@ public:
     Command build();
     void setType(CommandTypes t);
     void addArgument(CommandArgument* arg);
-    void addArgument(unsigned int);
-    void addArgmuent(unsigned short);
+    void addArgument(unsigned int,int type);
 };
 
 

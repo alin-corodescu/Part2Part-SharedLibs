@@ -10,9 +10,9 @@
 class IntegrityChecker
 {
     friend class FileDescriptionBuilder;
-private:
-    static std::string hashForFile(const char* path);
 public:
+    static std::string hashForFile(const char* path);
+
     static bool checkIntegrity(FileDescription fileDescription, const char* path);
 };
 #endif //SHARED_LIBRARIES_INTEGRITYCHECKER_H

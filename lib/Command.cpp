@@ -39,20 +39,22 @@ const char *commandName(CommandTypes type) {
     }
 }
 
-int Command::toString(char *buffer) {
-
-    bcopy(buffer,(char*) this->buffer.data(), this->buffer.size());
+int Command::toString(char*& buffer) {
+    int i;
+    for (i = 0; i < this->buffer.size(); i++)
+        buffer[i] = this->buffer.at(i);
     return this->buffer.size();
 }
 
 Command::Command(CommandTypes type) {
     this->type = type;
-    char *comm = (char*) malloc(COMM_LENGTH);
-    comm[0] = 0;
-    strcat(comm,commandName(type));
-    buffer.append(comm);
-    free(comm);
+    int cmdLength = strlen(commandName(type));
+    buffer.append(commandName(type));
+    int i;
+    for (i = cmdLength + 1; i <= COMM_LENGTH; i++)
+        buffer.push_back('\0');
 }
+
 
 int Command::length() {
     return buffer.size();
