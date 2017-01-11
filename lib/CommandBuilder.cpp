@@ -5,8 +5,8 @@
 #include <netinet/in.h>
 #include "../include/CommandBuilder.h"
 
-Command CommandBuilder::build() {
-    return *stub;
+Command* CommandBuilder::build() {
+    return stub;
 }
 
 void CommandBuilder::setType(CommandTypes t) {

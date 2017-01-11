@@ -32,9 +32,11 @@ private:
     CommandTypes type;
     std::string buffer;
     Command(CommandTypes type);
+
 public:
     int toString(char*& buffer);
     int length();
+    Command(const Command& command);
 };
 
 

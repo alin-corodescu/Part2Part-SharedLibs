@@ -14,7 +14,7 @@ class CommandBuilder {
 private:
     Command* stub;
 public:
-    Command build();
+    Command* build();
     void setType(CommandTypes t);
     void addArgument(CommandArgument* arg);
     void addArgument(unsigned int,int type);

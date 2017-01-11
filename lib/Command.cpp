@@ -59,3 +59,7 @@ Command::Command(CommandTypes type) {
 int Command::length() {
     return buffer.size();
 }
+
+Command::Command(const Command &command) : buffer(command.buffer){
+    type = command.type;
+}

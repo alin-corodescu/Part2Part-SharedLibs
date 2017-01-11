@@ -13,7 +13,7 @@ private:
     FileDescription* stub;
 public:
     FileDescription* buildFromString(char* string);
-    FileDescription* readFromFile(FILE* file);
+    FileDescription* readFromFile(FILE*& file);
     void init();
     void addName(const char* name);
     void addSize(int size);

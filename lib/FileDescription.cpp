@@ -24,10 +24,10 @@ std::string FileDescription::toString() {
     using std::string;
     string data;
     data.append("{\n");
-    data.append(jsonFormat("name",file_name));
-    data.append(jsonFormat("description",description));
-    data.append(jsonFormat("size",size));
-    data.append(jsonFormat("hash",hash));
+    data.append(jsonFormat("name",file_name,false));
+    data.append(jsonFormat("description",description,false));
+    data.append(jsonFormat("size",size,false));
+    data.append(jsonFormat("hash",hash,false));
     data.append(jsonFormat("type",type,true));
     data.append("}\n");
     return data;
@@ -55,8 +55,9 @@ std::string FileDescription::jsonFormat(std::string key, int value,bool last) {
 
     std::string format;
     format.append(key);
-    format.append(" : ");
+    format.append(" : \"");
     format.append(number);
+    format.append("\"");
     if (last) format.append("\n");
     else format.append(",\n");
     return format;
